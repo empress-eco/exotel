@@ -1,76 +1,79 @@
-# Exotel Integration
+<p align="center">
+  <br />
+  <a href="https://grow.empress.eco/"><strong>Explore the Docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/empress-eco/exotel/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/empress-eco/exotel/issues/new">Request Feature</a>
+</p>
 
-This allows you to integrate Exotel into your ERPNext instance. Leads and their phone numbers captured via Exotel can be saved directly to your ERPNext instance.
+![Project Logo](https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png
 
-## Features
+Exotel Integration for Empress is a potent utility that blends Exotel and Empress functionalities, enabling businesses to capture and save Leads and their phone numbers directly into their Empress instance via Exotel. By enhancing lead generation and customer interaction, it significantly streamlines business operations.
 
-- Tracks incoming calls in your ERPNext account.
-- Shows existing lead/customer information pop-up to employees when an incoming call is received.
+## About The Project
 
-## Installation
-1. Install [bench & ERPNext](https://github.com/frappe/erpnext#installation).
+Exotel Integration is engineered for businesses leveraging Empress and aims to utilize Exotel for enhancing lead generation and customer interaction. It allows tracking incoming calls in your Empress account and provides existing lead/customer information to employees during incoming calls, thereby improving customer service.
 
-2. Once setup is complete, add the "Exotel Integration" app to your bench by running
-    ```
-    $ bench get-app exotel_integration
-    ```
-3. Install the "Exotel Integration" app on the required site by running
-    ```
-    $ bench --site <sitename> install-app exotel_integration
-    ```
+### Key Features
 
+- Seamless integration between Exotel and Empress
+- Tracks incoming calls within your Empress account
+- Pop-up feature showing existing lead/customer information on incoming calls
 
-## Setup
+## Technical Stack and Setup Instructions
 
-### Credentials setup
-Once the installation is complete, go to your Exotel account (my.exotel.com) and generate API key to setup the integration.
+This project utilizes the power of Empress and Exotel. Before starting, ensure that you have [bench & Empress](https://github.com/Empress/Empress#installation) installed.
 
-1. In your Exotel account go to "API" page.
-<img width="1440" alt="Screenshot 2022-07-31 at 9 02 19 AM" src="https://user-images.githubusercontent.com/13928957/182023434-b939ddef-28e9-4a8f-84b1-5baa9a8625b5.png">
+### Installation
 
-2. Now click on "Create API Key" and create an API key with following permissions.
-<img width="540" alt="Screenshot 2022-07-31 at 9 13 43 AM" src="https://user-images.githubusercontent.com/13928957/182023498-df33970c-27f7-43db-80c5-f3fef5b7e5e8.png">
+Use these steps to add Exotel Integration to your Empress instance:
 
-3. Once the key is generated go to your ERPNext account and open "Exotel Settings" page. Click on enable and fill the values of "Account SID", "API Key" & "API Token".
-![explainer](https://user-images.githubusercontent.com/13928957/182023954-3dd3acc5-d691-4398-ae74-ee8276520d96.png)
+1. Clone the repo:
 
-### Setup to track calls
+```sh
+$ git clone https://github.com/empress-eco/exotel.git
+```
 
-1. Login to your Exotel account and go to App Bazar.
-2. Create a new "App" for a new flow.
-3. Setup the flow as you wish it to be.
-4. In your connect API under "Create popup...", copy and paste URL that you'll see in your "Exotel Settings" page once you are done with the [credentials setup](#credentials-setup).
-<img width="1354" alt="Screenshot 2022-07-31 at 3 25 56 PM" src="https://user-images.githubusercontent.com/13928957/182024295-399e28ce-c3d6-4e0a-b670-c308b1696578.png">
-5. After that add a "Passthru applet" under "After Call Conversation ends" and paste the same URL.
+2. Add the "Exotel Integration" app to your bench:
 
-<img width="607" src="https://user-images.githubusercontent.com/13928957/182024373-f0fca261-3ee5-45eb-a39e-b92a94ff96bf.png">
-<img width="607" alt="Screenshot 2022-07-31 at 5 06 52 PM" src="https://user-images.githubusercontent.com/13928957/182024422-3853eaef-60a4-4583-8577-260ad6b03fca.png">
+```sh
+$ bench get-app exotel_integration
+```
 
-> **Note:** Make sure to check "Make Passthru Async".
+3. Install the "Exotel Integration" app on the desired site:
 
-6. Similary, add another "Passthru applet" under "If nobody answers..." section and paste the same URL.
+```sh
+$ bench --site <sitename> install-app exotel_integration
+```
 
-<img width="607" src="https://user-images.githubusercontent.com/13928957/182024475-02807c67-8917-46e1-87fa-6f37244dae92.png">
-<img width="607" alt="Screenshot 2022-07-31 at 5 06 52 PM" src="https://user-images.githubusercontent.com/13928957/182024422-3853eaef-60a4-4583-8577-260ad6b03fca.png">
+## Usage
 
-> **Note:** Make sure to check "Make Passthru Async".
+After installation, set up your Exotel API Key and track incoming calls by following the comprehensive [setup guide](https://github.com/empress-eco/exotel#setup).
 
-7. Save the flow.
-8. Now assign this newly created "App" to your **ExoPhone** from which you receive your business calls.
+## Contribution Guidelines
 
-Once this is done, you should see all new incoming calls on your exotel phone number in the "Call Log" list in your ERPNext instance. 
+We welcome your contributions to make Exotel Integration even better! Here's the process:
 
-## Setup for call popup
+- Fork the Project
+- Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+- Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+- Push to the Branch (`git push origin feature/AmazingFeature`)
+- Open a Pull Request
 
-1. Create "Employee Group" based on call handling schedule. Make sure each employee in the group has a user linked to them and that it is correctly fetched into the table. Also make sure all the employees have their "mobile number" specified in the Employee master. Employees will recieve pop up only when calls are made to their number.
-![image](https://user-images.githubusercontent.com/13928957/182024718-bca67c68-1b2e-4563-8579-ee1f9b295f21.png)
+Your contributions enrich this tool, and we look forward to seeing your improvements!
 
-2. Go to Communication Medium.
-3. Add your **ExoPhone** and schedule that number. Based on this schedule employees will receive the popup. Make sure that the name of the communication medium is your ExoPhone number. 
-![image](https://user-images.githubusercontent.com/13928957/182024708-9cbfa255-0959-427e-8246-e6bb88687a49.png)
+## License and Acknowledgements
 
+### License
 
+This project is under the MIT License. Your contributions are also licensed under the MIT License.
 
-#### License
+### Acknowledgements
 
-GNU General Public License (v3)
+We extend our sincere gratitude to the Empress Community, whose innovative tools have been instrumental in building the foundations and functionalities of this project. Their pioneering work and ongoing support are deeply appreciated.
+
+---
+
+**Note:** Remember to replace placeholders in the code snippets with actual values relevant to your setup. For any queries, don't hesitate to reach out for [support](https://grow.empress.eco/).
